@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Chess Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+    table {
+      border-collapse: collapse;
+      margin: 20px auto;
+      border: 2px solid black;
+    }
+    td {
+      width: 60px;
+      height: 60px;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 36px;
+      font-weight: bold;
+    }
+    .white {
+      background-color: white;
+    }
+    .black {
+      background-color: gray;
+    }
+    .file-label, .rank-label {
+      background-color: #ddd;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chess Board</h1>
+  <table>
+    <tr>
+      <td class="file-label"></td>
+      <td class="file-label">A</td>
+      <td class="file-label">B</td>
+      <td class="file-label">C</td>
+      <td class="file-label">D</td>
+      <td class="file-label">E</td>
+      <td class="file-label">F</td>
+      <td class="file-label">G</td>
+      <td class="file-label">H</td>
+    </tr>
+    <script>
+      let board = '';
+      for (let r = 8; r >= 1; r--) {
+        board += '<tr>';
+        board += `<td class="rank-label">${r}</td>`;
+        for (let c = 1; c <= 8; c++) {
+          let color = (r + c) % 2 === 0 ? 'white' : 'black';
+          board += `<td class="${color}"></td>`;
+        }
+        board += '</tr>';
+      }
+      document.write(board);
+    </script>
+  </table>
+</body>
+</html>
